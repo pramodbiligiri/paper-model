@@ -1,0 +1,21 @@
+name: Deploy to Google App Engine
+on:
+  push:
+    branches:
+      - prod-deploy
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Deploy to JFrog
+        # run: mvn -s $GITHUB_WORKSPACE/.github/workflows/maven-settings.xml -B clean deploy --file pom.xml
+        run: GITHUB_ACTION=true mvn clean deploy
+        env:
+          JFROG_USERNAME: ${{ secrets.JFROG_USERNAME }}
+          JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}

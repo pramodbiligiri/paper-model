@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <activeProfiles>
+        <activeProfile>bkjfrog</activeProfile>
+    </activeProfiles>
+
+    <profiles>
+        <profile>
+            <id>bkjfrog</id>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>https://repo1.maven.org/maven2</url>
+                </repository>
+
+                <repository>
+                    <id>bkjfrog-snapshot</id>
+                    <url>https://bkjfrog.jfrog.io/artifactory/bk-libs-snapshot-local</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                </repository>
+
+                <repository>
+                    <id>bkjfrog-release</id>
+                    <url>https://bkjfrog.jfrog.io/artifactory/bk-libs-release-local</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                </repository>
+
+            </repositories>
+        </profile>
+    </profiles>
+
+<!--    <servers>-->
+<!--        <server>-->
+<!--            <id>bkjfrog-snapshot</id>-->
+<!--            <username>${env.JFROG_USERNAME}</username>-->
+<!--            <password>${env.JFROG_PASSWORD}</password>-->
+<!--        </server>-->
+
+<!--        <server>-->
+<!--            <id>bkjfrog-release</id>-->
+<!--            <username>${env.JFROG_USERNAME}</username>-->
+<!--            <password>${env.JFROG_PASSWORD}</password>-->
+<!--        </server>-->
+<!--    </servers>-->
+
+</settings>
